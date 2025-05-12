@@ -1,4 +1,19 @@
 # MorseTrainer
+5/12/2025
+fixed crash on audioEngine.connect 
+error was an initialization timing issue. 
+toneNode was being accessed before audioEngine was fully initialized—Swift 
+requires properties to be initialized before use, and because AVAudioSourceNode 
+was referencing self, it caused a premature access issue.
+Attachment order was incorrect—toneNode wasn’t properly attached before 
+attempting audioEngine.connect(), which led to a runtime crash.
+Connection constraints of AVAudioSourceNode—Unlike other audio nodes, 
+AVAudioSourceNode had to be directly connected to the mixer instead of 
+playerNode, preventing unexpected audio routing issues.
+
+
+
+
 Text file to morse code for iPhone and iPad 
 # MorseTrainer
 
