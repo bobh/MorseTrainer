@@ -1,7 +1,7 @@
 # MorseTrainer
 5/12/2025
 fixed crash on audioEngine.connect 
-the root cause of your error was an initialization timing issue.
+the root cause of error was an initialization timing issue.
 
 ✅ Ensured audioEngine was initialized first before any dependent components.
 ✅ Used an optional toneNode to defer initialization until after self was 
